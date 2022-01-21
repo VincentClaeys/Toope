@@ -1,0 +1,191 @@
+@use '../abstracts/_variables'as vars;
+@use '../abstracts/_functions'as func;
+
+
+@use 'sass:map';
+
+#userID {
+    padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+    border-radius: 1.5rem;
+    border: 1px solid map.get($map: vars.$colors, $key: color2);
+    margin-bottom: 1rem;
+
+    &::placeholder {
+        color: map.get($map: vars.$colors, $key: color2);
+
+    }
+}
+
+#firstName {
+    padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+    border-radius: 1.5rem;
+    border: 1px solid map.get($map: vars.$colors, $key: color2);
+    margin-bottom: 1rem;
+
+    &::placeholder {
+        color: map.get($map: vars.$colors, $key: color2);
+
+    }
+
+}
+
+#lastName {
+    padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+    border-radius: 1.5rem;
+    border: 1px solid map.get($map: vars.$colors, $key: color2);
+    margin-bottom: 1rem;
+
+    &::placeholder {
+        color: map.get($map: vars.$colors, $key: color2);
+
+    }
+}
+
+#username {
+    padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+    border-radius: 1.5rem;
+    border: 1px solid map.get($map: vars.$colors, $key: color2);
+
+    &::placeholder {
+        color: map.get($map: vars.$colors, $key: color2);
+
+    }
+}
+
+#imgName {
+    font-family: vars.$text-font;
+    font-size: 0.7rem;
+
+    margin-top: 1rem;
+    padding: 0.7rem;
+    border: 1px solid map.get($map: vars.$colors, $key: color2);
+    border-radius: 1.5rem;
+    background-color: map.get($map: vars.$colors, $key: color3);
+    color: map.get($map: vars.$colors, $key: color2);
+}
+
+.uploadContainer {
+    margin-top: 2rem;
+    background-color: map.get($map: vars.$colors, $key: color4);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    margin-left: 1.8rem;
+    border-radius: 1.5rem;
+
+    &__uploadBtn {
+        font-family: vars.$text-font;
+        font-size: 0.7rem;
+
+        margin-top: 5rem;
+        padding: 0.7rem;
+        border-radius: 1.5rem;
+        border-color: map.get($map: vars.$colors, $key: color2);
+        background-color: map.get($map: vars.$colors, $key: color2);
+        color: map.get($map: vars.$colors, $key: color3);
+        width: 50%;
+        align-items: center;
+
+    }
+
+    &__inputFieldUpload {
+        padding: 0.7rem;
+        border-radius: 1.5rem;
+        border: 1rem;
+        border-color: map.get($map: vars.$colors, $key: color2);
+        color: map.get($map: vars.$colors, $key: color2);
+    }
+}
+
+.dashboard {
+
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__logo {
+        width: 7rem;
+    }
+
+    &__btnLogOut {
+        margin-right: 3rem;
+        font-family: vars.$text-font;
+        font-size: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+        background-color: map.get($map: vars.$colors, $key: color2);
+        color: map.get($map: vars.$colors, $key: color3);
+
+
+    }
+
+}
+
+.dashboardContainer {
+
+    &__sloganOne {
+        font-family: vars.$text-font;
+        color: map.get($map: vars.$colors, $key: color2);
+        margin-left: 1.5rem;
+        font-size: 3rem;
+        width: 100vw;
+
+
+    }
+
+
+    &__text {
+        font-family: vars.$text-font;
+        color: map.get($map: vars.$colors, $key: color2);
+        font-size: 0.8rem;
+
+        margin-left: 1.5rem;
+
+    }
+
+}
+
+.eventsPageWrapperThree {
+
+    display: flex;
+    justify-content: center;
+
+
+    &__createEventContainer {
+
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+
+        &--ShowEventsBtn {
+
+            justify-content: center;
+            font-family: vars.$text-font;
+            font-size: 1rem;
+            padding: 1.5rem;
+            border-radius: 0.4rem;
+            border: none;
+            background-color: map.get($map: vars.$colors, $key: color2);
+            color: map.get($map: vars.$colors, $key: color3);
+        }
+
+        &--createEventBtn {
+            justify-content: center;
+            font-family: vars.$text-font;
+            font-size: 1rem;
+            padding: 1.5rem;
+            border-radius: 0.4rem;
+            border: none;
+            background-color: map.get($map: vars.$colors, $key: color2);
+            color: map.get($map: vars.$colors, $key: color3);
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+
+    }
+}

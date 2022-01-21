@@ -1,0 +1,269 @@
+@use '../abstracts/_variables'as vars;
+@use '../abstracts/_functions'as func;
+
+
+@use 'sass:map';
+
+
+.dashboard {
+
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__logo {
+        border-radius: 50%;
+        padding: 20px;
+        margin-left: 20px;
+    }
+
+    &__btnLogOut {
+        margin-right: 3rem;
+        font-family: vars.$text-font;
+        font-size: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+        background-color: map.get($map: vars.$colors, $key: color2);
+        color: map.get($map: vars.$colors, $key: color3);
+
+
+    }
+}
+
+
+
+
+.dashboardContainer {
+
+
+    margin-top: -10px;
+
+    &__sloganOne {
+        font-family: vars.$text-font;
+        color: map.get($map: vars.$colors, $key: color2);
+        margin-left: 1.5rem;
+        font-size: 3rem;
+        width: 50vw;
+
+    }
+
+
+    &__text {
+        font-family: vars.$text-font;
+        color: map.get($map: vars.$colors, $key: color2);
+        font-size: 0.8rem;
+
+        margin-left: 1.5rem;
+
+    }
+
+}
+
+
+//style the icons of FontAwesome'
+
+.AllContainers {
+
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: 2rem;
+
+
+    &__divOne {
+        grid-area: 1 / 1 / 3 / 3;
+        background-color: map.get($map: vars.$colors, $key: color2);
+        padding: 35px;
+        border-radius: 20px;
+
+        .fas {
+            color: map.get($map: vars.$colors, $key: color3);
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        &--text {
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color3);
+            background-color: map.get($map: vars.$colors, $key: color2);
+            border: none;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+
+
+        }
+
+    }
+
+    &__divTwo {
+        grid-area: 1 / 3 / 3 / 7;
+        background-color: map.get($map: vars.$colors, $key: color4);
+        border-radius: 20px;
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5vh;
+
+
+
+        }
+
+        &--text {
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color2);
+            background-color: map.get($map: vars.$colors, $key: color4);
+            border: none;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+
+
+        }
+
+        .fas {
+            color: map.get($map: vars.$colors, $key: color2);
+            font-size: 1.5rem;
+
+
+        }
+
+
+
+    }
+
+    &__divThree {
+        grid-area: 3 / 1 / 5 / 7;
+        background-color: map.get($map: vars.$colors, $key: color2);
+        border-radius: 20px;
+
+        .fas {
+            color: map.get($map: vars.$colors, $key: color3);
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5vh;
+
+        }
+
+        &--text {
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color3);
+            background-color: map.get($map: vars.$colors, $key: color2);
+            border: none;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+
+
+        }
+    }
+
+    &__divFour {
+        grid-area: 5 / 1 / 7 / 5;
+        background-color: map.get($map: vars.$colors, $key: color4);
+        border-radius: 20px;
+
+        .fas {
+            color: map.get($map: vars.$colors, $key: color2);
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5vh;
+
+        }
+
+        &--text {
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color2);
+            background-color: map.get($map: vars.$colors, $key: color4);
+            border: none;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+
+
+        }
+    }
+
+    &__divFive {
+        grid-area: 5 / 5 / 7 / 7;
+        background-color: map.get($map: vars.$colors, $key: color2);
+        border-radius: 20px;
+
+        .fas {
+            color: map.get($map: vars.$colors, $key: color3);
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+
+        }
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5vh;
+
+        }
+
+        &--text {
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color3);
+            background-color: map.get($map: vars.$colors, $key: color2);
+            border: none;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+
+
+        }
+    }
+
+
+    &__divSix {
+        grid-area: 7 / 1 / 8 / 7;
+        background-color: map.get($map: vars.$colors, $key: color5);
+        border-radius: 20px;
+
+        &--content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.7rem;
+
+        }
+
+        .panicButton {
+
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color3);
+            background-color: map.get($map: vars.$colors, $key: color5);
+            border: none;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+    }
+}

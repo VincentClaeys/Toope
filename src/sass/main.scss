@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+
+// base
+
+@use './base/_fonts';
+
+
+//pages
+
+@use "./pages/loginPage";
+@use "./pages/dashboard";
+@use "./pages/searchParty";
+@use "./pages/events";
+@use "./pages/photoFeed";
+@use "./pages/createEvent";
+
+//main page
+
+@use './_mainPage.scss';

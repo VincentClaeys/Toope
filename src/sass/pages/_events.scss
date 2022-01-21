@@ -1,0 +1,158 @@
+@use '../abstracts/_variables'as vars;
+@use '../abstracts/_functions'as func;
+
+
+@use 'sass:map';
+
+
+#picture {
+    width: 80%;
+    height: 100%;
+
+}
+
+.listItemsContainer {
+    color: black;
+    list-style: none;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &__content {
+        background-color: map.get($map: vars.$colors, $key: color4);
+        color: map.get($map: vars.$colors, $key: color2);
+        width: 80%;
+        margin: 20px;
+        border-radius: 0.4rem;
+        padding: 1.5rem 0rem 1rem 1.5rem;
+        font-family: vars.$text-font;
+        font-size: 1rem;
+
+        box-shadow: 5px 5px 15px -5px map.get($map: vars.$colors, $key: color2);
+
+        &--partyName {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        &--partyFrom {
+            font-family: vars.$text-fontTwo;
+            margin-bottom: 10px;
+        }
+
+        &--date {
+            font-family: vars.$text-fontTwo;
+            margin-bottom: 20px;
+        }
+
+        &--btnDetail {
+            font-family: vars.$text-font;
+            font-size: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 0.4rem;
+            background-color: map.get($map: vars.$colors, $key: color2);
+            color: map.get($map: vars.$colors, $key: color3);
+            border: none;
+        }
+
+    }
+
+}
+
+.listItemsContainer img {
+    width: 10%;
+}
+
+.dashboard {
+
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__logo {
+        width: 7rem;
+    }
+
+    &__btnLogOut {
+        margin-right: 3rem;
+        font-family: vars.$text-font;
+        font-size: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+        background-color: map.get($map: vars.$colors, $key: color2);
+        color: map.get($map: vars.$colors, $key: color3);
+
+
+    }
+
+}
+
+.dashboardContainer {
+
+    &__sloganOne {
+        font-family: vars.$text-font;
+        color: map.get($map: vars.$colors, $key: color2);
+        margin-left: 1.5rem;
+        font-size: 3rem;
+        width: 100vw;
+
+
+    }
+
+
+    &__text {
+        font-family: vars.$text-font;
+        color: map.get($map: vars.$colors, $key: color2);
+        font-size: 0.8rem;
+
+        margin-left: 1.5rem;
+
+    }
+
+}
+
+.eventsPageWrapperThree {
+
+    display: flex;
+    justify-content: center;
+
+
+    &__createEventContainer {
+
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+
+        &--ShowEventsBtn {
+
+            justify-content: center;
+            font-family: vars.$text-font;
+            font-size: 1rem;
+            padding: 1.5rem;
+            border-radius: 0.4rem;
+            border: none;
+            background-color: map.get($map: vars.$colors, $key: color2);
+            color: map.get($map: vars.$colors, $key: color3);
+        }
+
+        &--createEventBtn {
+            justify-content: center;
+            font-family: vars.$text-font;
+            font-size: 1rem;
+            padding: 1.5rem;
+            border-radius: 2.4rem;
+            border: none;
+            background-color: map.get($map: vars.$colors, $key: color2);
+            color: map.get($map: vars.$colors, $key: color3);
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+
+    }
+}

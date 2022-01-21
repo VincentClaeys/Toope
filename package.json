@@ -1,0 +1,31 @@
+{
+  "name": "spa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "node-sass": "^7.0.1",
+    "parcel-bundler": "^1.9.4",
+    "sass": "^1.45.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-regenerator-runtime": "^6.5.0",
+    "firebase": "^9.6.1",
+    "firebase-tools": "^10.1.0",
+    "install": "^0.13.0",
+    "navigo": "^8.11.1",
+    "regenerator-runtime": "^0.13.9"
+  }
+}
