@@ -38,7 +38,7 @@ class EventsComponent extends Component {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           const { photoURL } = user;
-          console.log(photoURL);
+
           header.src = photoURL;
 
           // ...
@@ -48,8 +48,9 @@ class EventsComponent extends Component {
         }
       });
     }
+    const komop = new CreateCard();
 
-    window.onload = profilePhoto();
+    window.onload = (profilePhoto(), komop.fetchAllData());
 
     const logOutBtn = Elements.createButton({
       className: 'dashboard__btnLogOut',
@@ -69,11 +70,32 @@ class EventsComponent extends Component {
     // content wrapper Two
     const headerContainerTwo = Elements.createHeader({
       textContent: 'Events',
-      className: 'dashboardContainer__sloganOne',
+      className: 'eventsContainer__textContainer--sloganOne',
     });
     const textContainerTwo = Elements.createText({
-      textContent: 'Check your events! ',
-      className: 'dashboardContainer__text',
+      textContent: 'Create unforgettable moments',
+      className: 'eventsContainer__textContainer--text',
+
+    });
+    const textContainer = Elements.createContainer({
+      className: 'eventsContainer__textContainer',
+      children: [headerContainerTwo, textContainerTwo],
+    });
+    const icon = Elements.createIcon({
+      classNames: ['fas', 'fa-plus', 'input-icon'],
+      onClick: () => {
+        Router.getRouter().navigate('/createEvent');
+      },
+    });
+    const iconContainer = Elements.createContainer({
+      className: 'eventsContainer__iconContainer',
+      children: [icon],
+    });
+
+    // wrapper Two
+    const homePageWrapperTwo = Elements.createContainer({
+      className: 'eventsContainer',
+      children: [textContainer, iconContainer],
 
     });
 
@@ -83,47 +105,13 @@ class EventsComponent extends Component {
     });
 
     // wrapper Two
-    const homePageWrapperTwo = Elements.createContainer({
-      className: 'dashboardContainer',
-      children: [headerContainerTwo,
-        textContainerTwo],
-
-    });
 
     // content wrapper three
-    const createAnEventBtn = Elements.createButton({
-      className: 'eventsPageWrapperThree__createEventContainer--createEventBtn',
-      textContent: 'Create An Event here',
-      onClick: () => {
-        Router.getRouter().navigate('/createEvent');
-      },
-
-    });
-    const ShowEventsBtn = Elements.createButton({
-      className: 'eventsPageWrapperThree__createEventContainer--ShowEventsBtn',
-      textContent: 'Show all partys',
-      onClick: () => {
-        const komop = new CreateCard();
-        komop.fetchAllData();
-      },
-
-    });
-
-    const createAnEvent = Elements.createContainer({
-      className: 'eventsPageWrapperThree__createEventContainer',
-      children: [createAnEventBtn, ShowEventsBtn],
-    });
-
-    // wrapper three
-    const eventsPageWrapperThree = Elements.createContainer({
-      className: 'eventsPageWrapperThree',
-      children: [createAnEvent],
-    });
 
     // combine two wrappers
     const createContainer = Elements.createContainer({
       className: 'togheter',
-      children: [homePageWrapperOne, homePageWrapperTwo, eventsPageWrapperThree,
+      children: [homePageWrapperOne, homePageWrapperTwo,
         createdEvents],
     });
 

@@ -14,9 +14,11 @@ import {
 import {
   getStorage, ref as sRef, uploadBytesResumable, getDownloadURL,
 } from 'firebase/storage';
+import {
+  getAuth, onAuthStateChanged,
+} from 'firebase/auth';
 import Component from '../library/Component';
 import Elements from '../library/Elements';
-import logo from '../images/logo.png';
 import Router from '../Router';
 import Authenticator from '../library/Authenticator';
 
@@ -30,12 +32,13 @@ class UploadPhotosComponent extends Component {
 
   render() {
     this.clearComponent();
+    const auth = getAuth();
 
     const uploadPhotosContainer = document.createElement('div');
 
     // content wrapper One
     const header = Elements.createImage({
-      newSource: logo,
+
       className: 'dashboard__logo',
       onClick: () => {
         Router.getRouter().navigate('/dashboard');
@@ -46,8 +49,8 @@ class UploadPhotosComponent extends Component {
       className: 'dashboard__btnLogOut',
       textContent: 'Log out',
       onClick: () => {
-        const auth = new Authenticator();
-        auth.logOut();
+        const logOut = new Authenticator();
+        logOut.logOut();
       },
     });
 
@@ -76,25 +79,34 @@ class UploadPhotosComponent extends Component {
     let files = [];
     const reader = new FileReader();
     const firestore = getFirestore();
-    const createtext = Elements.createInput({
-      className: ' uploadContainer__inputFieldUpload',
-      placeholder: 'your Username',
-      id: 'username',
-      type: 'text',
+    const uploadPhotoText = Elements.createText({
+      id: 'profileNameText',
+      className: 'uploadPhotoContainer__uploadText',
+      textContent: 'You are going to upload a photo under the name:',
+    });
+    const profileName = Elements.createText({
+      id: 'profileName',
+      className: 'uploadPhotoContainer__profileName',
+    });
+    const uploadPhotoTextTwo = Elements.createText({
+      id: 'profileName',
+      className: 'uploadPhotoContainer__uploadText',
+      textContent: 'Choose a file you want to upload :',
     });
     const createInputFile = Elements.createInput({
-      className: 'uploadContainer__uploadBtn',
+      className: 'uploadPhotoContainer__typeFile',
       id: 'imgName',
       type: 'file',
     });
     const createUploadBtn = Elements.createButton({
-      className: 'uploadContainer__uploadBtn',
+      className: 'uploadPhotoContainer__uploadBtn',
       id: 'upBtn',
       textContent: 'upload',
     });
     const uploadPhotoContainer = Elements.createContainer({
-      className: 'uploadContainer',
-      children: [createtext, createInputFile, createUploadBtn],
+      className: 'uploadPhotoContainer',
+      children: [uploadPhotoText, profileName, uploadPhotoTextTwo,
+        createInputFile, createUploadBtn],
     });
 
     function getFileName(file) {
@@ -110,21 +122,34 @@ class UploadPhotosComponent extends Component {
       console.log(reader);
     };
     function addUser() {
-      const firstNameVar = document.getElementById('username').value;
-      const ref = doc(firestore, 'users', firstNameVar);
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const { photoURL } = user;
+          header.src = photoURL;
+          const { displayName } = user;
+          profileName.textContent = `${displayName}`;
 
-      setDoc(ref, {
-        firstName: firstNameVar,
-        profileURL: downloadURLVar,
+          const ref = doc(firestore, 'users', displayName);
 
-      })
+          setDoc(ref, {
+            firstName: displayName,
+            profileURL: downloadURLVar,
 
-        .then(() => {
+          })
 
-        })
-        .catch((error) => {
-          alert(`error${error}`);
-        });
+            .then(() => {
+
+            })
+            .catch((error) => {
+              alert(`error${error}`);
+            });
+
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
     }
 
     async function uploadProcess() {
@@ -162,6 +187,23 @@ class UploadPhotosComponent extends Component {
     }
 
     createUploadBtn.onclick = uploadProcess;
+
+    function profileURL() {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const { photoURL } = user;
+          header.src = photoURL;
+          const { displayName } = user;
+          profileName.textContent = `${displayName}`;
+
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+    }
+    window.onload = profileURL();
 
     /**
  * WRAPPER TWO

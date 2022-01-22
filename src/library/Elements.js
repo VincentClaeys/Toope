@@ -17,9 +17,10 @@ const Elements = {
     return button;
   },
 
-  createIcon({ classNames = [] }) {
+  createIcon({ classNames = [], onClick = null }) {
     const icon = document.createElement('i');
     if (classNames.length) icon.classList.add(...classNames);
+    if (onClick) icon.addEventListener('click', () => { onClick(); });
 
     return icon;
   },
@@ -47,13 +48,14 @@ const Elements = {
     return input;
   },
   createInputField({
-    type, id, placeholder = '', className,
+    type, id, placeholder = '', className, textContent,
   }) {
     const input = document.createElement('input');
     input.classList.add(className);
     input.type = type;
     input.placeholder = placeholder;
     input.id = id;
+    input.textContent = textContent;
     return input;
   },
 

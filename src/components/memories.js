@@ -3,10 +3,12 @@
  */
 
 /* eslint-disable class-methods-use-this */
-
+import {
+  getAuth, onAuthStateChanged,
+} from 'firebase/auth';
 import Component from '../library/Component';
 import Elements from '../library/Elements';
-import logo from '../images/logo.png';
+
 import Router from '../Router';
 import Authenticator from '../library/Authenticator';
 import CreatePhoto from '../library/createPhotoFeed';
@@ -26,19 +28,35 @@ class MemoriesComponent extends Component {
 
     // content wrapper One
     const header = Elements.createImage({
-      newSource: logo,
+
       className: 'dashboard__logo',
       onClick: () => {
         Router.getRouter().navigate('/dashboard');
       },
     });
+    const auth = getAuth();
+    function profileURL() {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const { photoURL } = user;
+          header.src = photoURL;
 
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+    }
+    const komop = new CreatePhoto();
+
+    window.onload = (komop.fetchAll(), profileURL());
     const logOutBtn = Elements.createButton({
       className: 'dashboard__btnLogOut',
       textContent: 'Log out',
       onClick: () => {
-        const auth = new Authenticator();
-        auth.logOut();
+        const logout = new Authenticator();
+        logout.logOut();
       },
     });
 
@@ -50,38 +68,33 @@ class MemoriesComponent extends Component {
 
     // content wrapper Two
     const headerContainerTwo = Elements.createHeader({
-      textContent: 'Memories',
-      className: 'dashboardContainer__sloganOne',
+      textContent: 'Photos',
+      className: 'memoriesContainer__textContainer--sloganOne',
     });
     const textContainerTwo = Elements.createText({
-      textContent: 'Show beautiful moments with friends! ',
-      className: 'dashboardContainer__text',
+      textContent: 'Show beautiful moments! ',
+      className: 'memoriesContainer__textContainer--text',
 
+    });
+    const textContainer = Elements.createContainer({
+      className: 'memoriesContainer__textContainer',
+      children: [headerContainerTwo, textContainerTwo],
+    });
+    const icon = Elements.createIcon({
+      classNames: ['fas', 'fa-plus', 'input-icon'],
+      onClick: () => {
+        Router.getRouter().navigate('/uploadPhotos');
+      },
+    });
+    const iconContainer = Elements.createContainer({
+      className: 'memoriesContainer__iconContainer',
+      children: [icon],
     });
 
     // wrapper Two
     const homePageWrapperTwo = Elements.createContainer({
-      className: 'dashboardContainer',
-      children: [headerContainerTwo,
-        textContainerTwo],
-
-    });
-
-    const createAnEventBtn = Elements.createButton({
-      className: 'eventsPageWrapperThree__createEventContainer--createEventBtn',
-      textContent: 'Upload your photo',
-      onClick: () => {
-        Router.getRouter().navigate('/uploadPhotos');
-      },
-
-    });
-    const showPhotos = Elements.createButton({
-      className: 'eventsPageWrapperThree__createEventContainer--createEventBtn',
-      textContent: 'Show all photos',
-      onClick: () => {
-        const komop = new CreatePhoto();
-        komop.fetchAll();
-      },
+      className: 'memoriesContainer',
+      children: [textContainer, iconContainer],
 
     });
 
@@ -90,22 +103,13 @@ class MemoriesComponent extends Component {
       className: 'listItemsContainer',
     });
 
-    const createAnEvent = Elements.createContainer({
-      className: 'eventsPageWrapperThree__createEventContainer',
-      children: [createAnEventBtn, showPhotos],
-    });
-
     // wrapper three
-    const eventsPageWrapperThree = Elements.createContainer({
-      className: 'eventsPageWrapperThree',
-      children: [createAnEvent],
-    });
 
     // combine two wrappers
     const createContainer = Elements.createContainer({
       className: 'togheter',
       children: [homePageWrapperOne, homePageWrapperTwo,
-        eventsPageWrapperThree, createdEvents,
+        createdEvents,
       ],
     });
 

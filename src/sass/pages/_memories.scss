@@ -32,7 +32,8 @@
 #lastName {
     padding: 0.7rem 8.3rem 0.7rem 0.7rem;
     border-radius: 1.5rem;
-
+    border: 1px solid map.get($map: vars.$colors, $key: color2);
+    margin-bottom: 1rem;
 
     &::placeholder {
         color: map.get($map: vars.$colors, $key: color2);
@@ -51,48 +52,50 @@
     }
 }
 
+#imgName {
+    font-family: vars.$text-font;
+    font-size: 0.7rem;
+    margin-top: 0.7rem;
+    padding: 0.7rem;
+    border: 1px solid map.get($map: vars.$colors, $key: color2);
+    border-radius: 1.5rem;
+    background-color: map.get($map: vars.$colors, $key: color3);
+    color: map.get($map: vars.$colors, $key: color2);
+}
 
-.uploadPhotoContainer {
+.uploadContainer {
     margin-top: 2rem;
     background-color: map.get($map: vars.$colors, $key: color4);
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 85%;
     margin-left: 1.8rem;
     border-radius: 1.5rem;
-    display: flex;
-    flex-direction: column;
-
-    &__uploadText {
-        font-family: vars.$text-fontTwo;
-        color: map.get($map: vars.$colors, $key: color2);
-        margin-bottom: 1rem;
-    }
 
     &__uploadBtn {
         font-family: vars.$text-font;
         font-size: 0.7rem;
 
-        margin-top: 3rem;
+        margin-top: 5rem;
         padding: 0.7rem;
         border-radius: 1.5rem;
         border-color: map.get($map: vars.$colors, $key: color2);
         background-color: map.get($map: vars.$colors, $key: color2);
         color: map.get($map: vars.$colors, $key: color3);
         width: 50%;
-
+        align-items: center;
 
     }
 
-
-    &__profileName {
-        font-family: vars.$text-font;
+    &__inputFieldUpload {
+        padding: 0.7rem;
+        border-radius: 1.5rem;
+        border: 1rem;
+        border-color: map.get($map: vars.$colors, $key: color2);
         color: map.get($map: vars.$colors, $key: color2);
-        margin-bottom: 1rem;
-        font-size: 2rem;
-
     }
-
-
 }
 
 .dashboard {
@@ -121,26 +124,43 @@
 
 }
 
-.dashboardContainer {
-
-    &__sloganOne {
-        font-family: vars.$text-font;
-        color: map.get($map: vars.$colors, $key: color2);
-        margin-left: 1.5rem;
-        font-size: 3rem;
-        width: 100vw;
 
 
+.memoriesContainer {
+    margin-top: 1rem;
+    display: flex;
+    margin-bottom: 2rem;
+
+    &__textContainer {
+
+
+        &--sloganOne {
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color2);
+            margin-left: 2.5rem;
+            font-size: 3rem;
+        }
+
+        &--text {
+            font-family: vars.$text-font;
+            color: map.get($map: vars.$colors, $key: color2);
+            font-size: 0.8rem;
+            margin-left: 2.5rem;
+        }
     }
 
+    &__iconContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 4.5rem;
 
-    &__text {
-        font-family: vars.$text-font;
-        color: map.get($map: vars.$colors, $key: color2);
-        font-size: 0.8rem;
-
-        margin-left: 1.5rem;
-
+        .fa-plus {
+            border-radius: 50%;
+            padding: 1rem;
+            background-color: map.get($map: vars.$colors, $key: color2);
+            color: map.get($map: vars.$colors, $key: color3);
+            font-size: 2rem;
+        }
     }
-
 }

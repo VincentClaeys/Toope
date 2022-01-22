@@ -3,7 +3,9 @@
  */
 
 /* eslint-disable class-methods-use-this */
-
+import {
+  getAuth, onAuthStateChanged, updateProfile,
+} from 'firebase/auth';
 import Component from '../library/Component';
 import Elements from '../library/Elements';
 import logo from '../images/logo.png';
@@ -36,8 +38,8 @@ class ProfileSettingsComponent extends Component {
       className: 'dashboard__btnLogOut',
       textContent: 'Log out',
       onClick: () => {
-        const auth = new Authenticator();
-        auth.logOut();
+        const logOut = new Authenticator();
+        logOut.logOut();
       },
     });
 
@@ -65,11 +67,76 @@ class ProfileSettingsComponent extends Component {
         textContainerTwo],
 
     });
+    const profileName = Elements.createText({
+      id: 'profileName',
+      className: 'changeProfileContainer__profileName',
+    });
+    const CurrentProfileNameText = Elements.createText({
+      id: 'profileName',
+      className: 'changeProfileContainer__CurrentProfileNameText',
+      textContent: 'Current Username : ',
+    });
+    const setNewProfileNameText = Elements.createText({
+      id: 'profileName',
+      className: 'changeProfileContainer__setNewProfileNameText',
+      textContent: 'Change username : ',
+    });
+    const newProfileName = Elements.createInputField({
+      id: 'newProfileName',
+      className: 'changeProfileContainer__newProfileNameInput',
+      placeholder: ' New userName',
+    });
+    const auth = getAuth();
 
+    function updateUsername() {
+      const usernameke = document.getElementById('newProfileName').value;
+      updateProfile(auth.currentUser, {
+        displayName: usernameke,
+
+      }).then(() => {
+        // eslint-disable-next-line no-unused-expressions
+        window.location.reload(true);
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // eslint-disable-next-line no-alert
+        console.log(`Error ${errorCode}${errorMessage}`);
+      });
+    }
+    const newProfileNameBtn = Elements.createButton({
+      className: 'changeProfileContainer__newProfileName',
+      id: 'newProfileNameBtn',
+      textContent: 'Edit UserName',
+      onClick: () => {
+        updateUsername();
+      },
+    });
+    const profileContainer = Elements.createContainer({
+      className: 'changeProfileContainer',
+      children: [CurrentProfileNameText, profileName, setNewProfileNameText,
+        newProfileName, newProfileNameBtn],
+    });
+
+    function profileURL() {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const { photoURL } = user;
+          header.src = photoURL;
+          const { displayName } = user;
+          profileName.textContent = `${displayName}`;
+
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+    }
+    window.onload = profileURL();
     // combine two wrappers
     const createContainer = Elements.createContainer({
       className: 'togheter',
-      children: [homePageWrapperOne, homePageWrapperTwo],
+      children: [homePageWrapperOne, homePageWrapperTwo, profileContainer],
     });
 
     profileSettingsContainer.appendChild(createContainer);

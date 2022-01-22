@@ -3,10 +3,11 @@
  */
 
 /* eslint-disable class-methods-use-this */
-
+import {
+  getAuth, onAuthStateChanged,
+} from 'firebase/auth';
 import Component from '../library/Component';
 import Elements from '../library/Elements';
-import logo from '../images/logo.png';
 import searchPartyOne from '../images/searchPartyOne.jpg';
 import Router from '../Router';
 import Authenticator from '../library/Authenticator';
@@ -26,19 +27,33 @@ class SearchPartyComponent extends Component {
 
     // content wrapper One
     const header = Elements.createImage({
-      newSource: logo,
+
       className: 'dashboard__logo',
       onClick: () => {
         Router.getRouter().navigate('/dashboard');
       },
     });
+    const auth = getAuth();
+    function profileURL() {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const { photoURL } = user;
+          header.src = photoURL;
 
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+    }
+    window.onload = profileURL();
     const logOutBtn = Elements.createButton({
       className: 'dashboard__btnLogOut',
       textContent: 'Log out',
       onClick: () => {
-        const auth = new Authenticator();
-        auth.logOut();
+        const logOut = new Authenticator();
+        logOut.logOut();
       },
     });
 

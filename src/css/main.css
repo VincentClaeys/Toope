@@ -468,50 +468,35 @@
   color: #FFFFFF;
 }
 
-.dashboardContainer__sloganOne {
+.eventsContainer {
+  margin-top: 1rem;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.eventsContainer__textContainer--sloganOne {
   font-family: "Righteous", cursive;
   color: #495EAA;
-  margin-left: 1.5rem;
+  margin-left: 2.5rem;
   font-size: 3rem;
-  width: 100vw;
 }
-.dashboardContainer__text {
+.eventsContainer__textContainer--text {
   font-family: "Righteous", cursive;
   color: #495EAA;
   font-size: 0.8rem;
-  margin-left: 1.5rem;
+  margin-left: 2.5rem;
 }
-
-.eventsPageWrapperThree {
+.eventsContainer__iconContainer {
   display: flex;
+  align-items: center;
   justify-content: center;
+  margin-left: 3.8rem;
 }
-.eventsPageWrapperThree__createEventContainer {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-.eventsPageWrapperThree__createEventContainer--ShowEventsBtn {
-  justify-content: center;
-  font-family: "Righteous", cursive;
-  font-size: 1rem;
-  padding: 1.5rem;
-  border-radius: 0.4rem;
-  border: none;
+.eventsContainer__iconContainer .fa-plus {
+  border-radius: 50%;
+  padding: 1rem;
   background-color: #495EAA;
   color: #FFFFFF;
-}
-.eventsPageWrapperThree__createEventContainer--createEventBtn {
-  justify-content: center;
-  font-family: "Righteous", cursive;
-  font-size: 1rem;
-  padding: 1.5rem;
-  border-radius: 2.4rem;
-  border: none;
-  background-color: #495EAA;
-  color: #FFFFFF;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  font-size: 2rem;
 }
 
 #picture {
@@ -626,6 +611,151 @@
 #lastName {
   padding: 0.7rem 8.3rem 0.7rem 0.7rem;
   border-radius: 1.5rem;
+}
+#lastName::placeholder {
+  color: #495EAA;
+}
+
+#username {
+  padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+  border-radius: 1.5rem;
+  border: 1px solid #495EAA;
+}
+#username::placeholder {
+  color: #495EAA;
+}
+
+.uploadPhotoContainer {
+  margin-top: 2rem;
+  background-color: #D8DBE8;
+  padding: 2rem;
+  width: 85%;
+  margin-left: 1.8rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.uploadPhotoContainer__uploadText {
+  font-family: "Quicksand", sans-serif;
+  color: #495EAA;
+  margin-bottom: 1rem;
+}
+.uploadPhotoContainer__uploadBtn {
+  font-family: "Righteous", cursive;
+  font-size: 0.7rem;
+  margin-top: 3rem;
+  padding: 0.7rem;
+  border-radius: 1.5rem;
+  border-color: #495EAA;
+  background-color: #495EAA;
+  color: #FFFFFF;
+  width: 50%;
+}
+.uploadPhotoContainer__profileName {
+  font-family: "Righteous", cursive;
+  color: #495EAA;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.dashboard {
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboard__logo {
+  width: 7rem;
+}
+.dashboard__btnLogOut {
+  margin-right: 3rem;
+  font-family: "Righteous", cursive;
+  font-size: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  background-color: #495EAA;
+  color: #FFFFFF;
+}
+
+.dashboardContainer__sloganOne {
+  font-family: "Righteous", cursive;
+  color: #495EAA;
+  margin-left: 1.5rem;
+  font-size: 3rem;
+  width: 100vw;
+}
+.dashboardContainer__text {
+  font-family: "Righteous", cursive;
+  color: #495EAA;
+  font-size: 0.8rem;
+  margin-left: 1.5rem;
+}
+
+.changeProfileContainer {
+  margin-top: 2rem;
+  background-color: #D8DBE8;
+  padding: 2rem;
+  width: 85%;
+  margin-left: 1.8rem;
+  border-radius: 1.5rem;
+}
+.changeProfileContainer__profileName {
+  font-family: "Righteous", cursive;
+  color: #495EAA;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.changeProfileContainer__CurrentProfileNameText {
+  font-family: "Quicksand", sans-serif;
+  color: #495EAA;
+  margin-bottom: 1rem;
+}
+.changeProfileContainer__setNewProfileNameText {
+  font-family: "Quicksand", sans-serif;
+  color: #495EAA;
+  margin-bottom: 1rem;
+}
+.changeProfileContainer__newProfileNameInput {
+  padding: 0.7rem 0rem 0.7rem 0.7rem;
+  border-radius: 1.5rem;
+  border: 1rem;
+  border-color: #495EAA;
+  color: #495EAA;
+}
+.changeProfileContainer__newProfileName {
+  font-family: "Righteous", cursive;
+  font-size: 0.7rem;
+  padding: 0.7rem;
+  border-radius: 1.5rem;
+  border-color: #495EAA;
+  background-color: #495EAA;
+  color: #FFFFFF;
+  margin-left: 0.5rem;
+}
+
+#userID {
+  padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+  border-radius: 1.5rem;
+  border: 1px solid #495EAA;
+  margin-bottom: 1rem;
+}
+#userID::placeholder {
+  color: #495EAA;
+}
+
+#firstName {
+  padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+  border-radius: 1.5rem;
+  border: 1px solid #495EAA;
+  margin-bottom: 1rem;
+}
+#firstName::placeholder {
+  color: #495EAA;
+}
+
+#lastName {
+  padding: 0.7rem 8.3rem 0.7rem 0.7rem;
+  border-radius: 1.5rem;
   border: 1px solid #495EAA;
   margin-bottom: 1rem;
 }
@@ -645,7 +775,7 @@
 #imgName {
   font-family: "Righteous", cursive;
   font-size: 0.7rem;
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   padding: 0.7rem;
   border: 1px solid #495EAA;
   border-radius: 1.5rem;
@@ -703,50 +833,35 @@
   color: #FFFFFF;
 }
 
-.dashboardContainer__sloganOne {
+.memoriesContainer {
+  margin-top: 1rem;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.memoriesContainer__textContainer--sloganOne {
   font-family: "Righteous", cursive;
   color: #495EAA;
-  margin-left: 1.5rem;
+  margin-left: 2.5rem;
   font-size: 3rem;
-  width: 100vw;
 }
-.dashboardContainer__text {
+.memoriesContainer__textContainer--text {
   font-family: "Righteous", cursive;
   color: #495EAA;
   font-size: 0.8rem;
-  margin-left: 1.5rem;
+  margin-left: 2.5rem;
 }
-
-.eventsPageWrapperThree {
+.memoriesContainer__iconContainer {
   display: flex;
+  align-items: center;
   justify-content: center;
+  margin-left: 4.5rem;
 }
-.eventsPageWrapperThree__createEventContainer {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-.eventsPageWrapperThree__createEventContainer--ShowEventsBtn {
-  justify-content: center;
-  font-family: "Righteous", cursive;
-  font-size: 1rem;
-  padding: 1.5rem;
-  border-radius: 0.4rem;
-  border: none;
+.memoriesContainer__iconContainer .fa-plus {
+  border-radius: 50%;
+  padding: 1rem;
   background-color: #495EAA;
   color: #FFFFFF;
-}
-.eventsPageWrapperThree__createEventContainer--createEventBtn {
-  justify-content: center;
-  font-family: "Righteous", cursive;
-  font-size: 1rem;
-  padding: 1.5rem;
-  border-radius: 0.4rem;
-  border: none;
-  background-color: #495EAA;
-  color: #FFFFFF;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  font-size: 2rem;
 }
 
 * {
